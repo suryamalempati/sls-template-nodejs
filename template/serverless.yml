@@ -18,7 +18,7 @@ functions:
     events:
       - 
         s3: 
-          bucket: ${s3Bucket}
+          bucket: s3Bucket
           event: s3:*
 
 plugins:

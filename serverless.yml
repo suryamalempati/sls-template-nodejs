@@ -1,0 +1,64 @@
+service: sls-template
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, "local"}
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - 
+        http: 
+          method: GET
+          path: /hello
+  s3-trigger-test:
+    handler: handler.hello
+    events:
+      - 
+        s3: 
+          bucket: ${s3Bucket}
+          event: s3:*
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-s3-local
+  - serverless-offline
+
+custom:
+  dynamodb:
+    stages:
+      - local
+    start:
+      port: 8000
+      migrate: true
+  s3:
+    host: localhost
+    directory: buckets
+
+resources:
+  Resources:
+    dynamodbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - 
+            AttributeName: pKey
+            AttributeType: S
+          - 
+            AttributeName: sKey
+            AttributeType: S
+        KeySchema:
+          - 
+            AttributeName: pKey
+            KeyType: HASH
+          - 
+            AttributeName: sKey
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+        TableName: test-dynamo-local
+    s3Bucket:
+      Type: AWS::S3::Bucket
+      Properties: 
+        BucketName: test-bucket

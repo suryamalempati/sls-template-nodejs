@@ -1,0 +1,19 @@
+{
+  "name": "sls-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-s3-local": "^0.6.22",
+    "serverless-offline": "^8.7.0",
+    "serverless-offline-sqs": "^6.0.0"
+  }
+}

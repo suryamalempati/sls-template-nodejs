@@ -2,9 +2,14 @@
 
 ## Local development
 
+### Initiate
+
+`npm install`  
+`npm run dev-init`
+
 To start offline development
 
-`sls offline start`
+`npm run dev`
 
 Components that will start:
 

@@ -1,4 +1,4 @@
-service: sls-template
+service: test-with-template
 
 provider:
   name: aws

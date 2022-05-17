@@ -1,16 +1,16 @@
 {
-  "name": "sls-template",
+  "name": "test-with-template",
   "version": "1.0.0",
   "description": "",
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "sls offline start"
+    "dev": "sls offline start",
+    "dev-init": "sls dynamodb install"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-s3-local": "^0.6.22",
